@@ -25,10 +25,12 @@ export default {
   methods: {
     ...mapActions(['setFullScreen','setMiniPlayer','setSongDetail','setIsPlaying']),
     selectMusic(id){
+      this.setIsPlaying(true)
       this.setFullScreen(true)
       this.setSongDetail([id])
     },
     selectAllMusic(){
+      this.setIsPlaying(true)
       this.setFullScreen(true)
       let ids =  this.playlist.map(function(item){
         return item.id

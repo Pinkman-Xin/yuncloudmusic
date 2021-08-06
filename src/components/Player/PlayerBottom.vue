@@ -23,6 +23,8 @@
 import { mapGetters,mapActions} from 'vuex'
 import modeType from '../../store/modeType'
 import tool from '../../tools/tools'
+import mode from '../../store/modeType'
+
 export default {
   methods: {
     ...mapActions(['setIsPlaying','setModeType','setCurrentIndex','setCurrentTime','setFavoriteSong']),
@@ -39,10 +41,24 @@ export default {
       }
     },
     perv(){
-      this.setCurrentIndex(this.currentIndex - 1)
+      if (this.modeType === mode.loop) {
+        this.setCurrentIndex(this.currentIndex-1)
+      }else if (this.modeType === mode.one) {
+        this.setCurrentIndex(this.currentIndex)
+      }else if (this.modeType === mode.random) {
+        let index = tool.getRandomIntInclusive(0,this.songs.length-1)
+         this.setCurrentIndex(index)
+      }
     },
     next(){
-      this.setCurrentIndex(this.currentIndex + 1)
+      if (this.modeType === mode.loop) {
+        this.setCurrentIndex(this.currentIndex+1)
+      }else if (this.modeType === mode.one) {
+        this.setCurrentIndex(this.currentIndex)
+      }else if (this.modeType === mode.random) {
+        let index = tool.getRandomIntInclusive(0,this.songs.length-1)
+         this.setCurrentIndex(index)
+      }
     },
     
     progressClick(e){
@@ -67,7 +83,7 @@ export default {
     },
   },
   computed:{
-    ...mapGetters(['isPlaying','modeType','currentIndex','currentSong','favoriteList']),
+    ...mapGetters(['isPlaying','modeType','currentIndex','currentSong','favoriteList','songs']),
   },
   watch:{
     isPlaying(newValue,oldValue){

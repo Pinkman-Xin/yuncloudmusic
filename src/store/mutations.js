@@ -28,6 +28,7 @@ export default {
   },
   SET_SONG_DETAIL(state, list) {
     state.currentIndex = 0
+
     state.songs = list
   },
   SET_SONG_LYRIC(state, lyric) {

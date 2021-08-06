@@ -145,7 +145,7 @@ export default {
       @include font_color();
       margin: 10px 0;
       &:last-of-type{
-        padding-bottom: 50%
+        padding-bottom: 60%
       }
       &.active{
         color: #fff;

@@ -1,6 +1,6 @@
 import axios from 'axios'
 import Vue from 'vue'
-axios.defaults.baseURL = 'http://localhost:3000'
+axios.defaults.baseURL = 'http://47.106.91.121:3001/'
 axios.defaults.timeout = 5000
 
 let count = 0

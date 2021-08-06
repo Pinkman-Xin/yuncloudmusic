@@ -36,6 +36,7 @@ export default {
     
   },
   computed:{
+    
     ...mapGetters(['currentSong','isPlaying','currentIndex','curTime','modeType','songs','favoriteList','historyList','currentSongName'])
   },
   watch:{
@@ -80,6 +81,7 @@ export default {
     }
   },
   created(){
+    
     let list1 = tool.getLocalStorage('favoriteList')
     if (list1 === null) {
       return
@@ -93,7 +95,9 @@ export default {
   },
   mounted() {
     this.$refs.audio.oncanplay=()=>{
+      console.log(this.$refs.audio.duration);
     this.totalTime = this.$refs.audio.duration
+
     }
   },
   data() {
