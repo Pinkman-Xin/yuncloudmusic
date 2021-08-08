@@ -12,7 +12,7 @@ export default {
   name: "Loading",
   data: function () {
     return {
-      title: "正在加载...",
+      title: "Loading...",
       showing: false,
       // styleObject: {
       //   display: none,
@@ -35,7 +35,7 @@ export default {
   width: 200px;
   height: 200px;
   border-radius: 20px;
-  background: rgba(0, 0, 0, 0.5);
+  // background: rgba(0, 0, 0, 0.5);
   position: absolute;
   left: 50%;
   top: 50%;
@@ -51,8 +51,8 @@ export default {
   }
   .title {
     text-align: center;
-    font-size: 16px;
-    color: #fff;
+    font-size: 30px;
+    color: #409eff;
   }
 }
 @keyframes loading {

@@ -44,7 +44,7 @@ export default {
       if (this.modeType === mode.loop) {
         this.setCurrentIndex(this.currentIndex-1)
       }else if (this.modeType === mode.one) {
-        this.setCurrentIndex(this.currentIndex)
+        this.$bus.$emit('updateOne') 
       }else if (this.modeType === mode.random) {
         let index = tool.getRandomIntInclusive(0,this.songs.length-1)
          this.setCurrentIndex(index)
@@ -54,7 +54,7 @@ export default {
       if (this.modeType === mode.loop) {
         this.setCurrentIndex(this.currentIndex+1)
       }else if (this.modeType === mode.one) {
-        this.setCurrentIndex(this.currentIndex)
+        this.$bus.$emit('updateOne') 
       }else if (this.modeType === mode.random) {
         let index = tool.getRandomIntInclusive(0,this.songs.length-1)
          this.setCurrentIndex(index)
@@ -70,6 +70,7 @@ export default {
       let value = clickLeft / progressWidth
       this.$refs.progressLine.style.width = value*100+'%'
       let currentTime = this.totalTime*value
+      console.log(currentTime);
       this.setCurrentTime(currentTime)
     },
     favorite(){
@@ -214,6 +215,4 @@ export default {
     }
   }
 }
-
-
 </style>

@@ -22,6 +22,7 @@ export default {
     ...mapActions(['setCurrentIndex','setFavoriteList','setHistorySong','setHistoryList']),
     timeupdate(e){
       this.currentTime = e.target.currentTime
+
     },
     end(){
       if (this.modeType === mode.loop) {
@@ -33,6 +34,9 @@ export default {
          this.setCurrentIndex(index)
       }
     },
+    replay(){
+      this.$refs.audio.currentTime = 0
+    }
     
   },
   computed:{
@@ -95,10 +99,9 @@ export default {
   },
   mounted() {
     this.$refs.audio.oncanplay=()=>{
-      console.log(this.$refs.audio.duration);
     this.totalTime = this.$refs.audio.duration
-
-    }
+    },
+    this.$bus.$on('updateOne',this.replay)
   },
   data() {
     return {

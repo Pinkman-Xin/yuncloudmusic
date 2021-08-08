@@ -6,7 +6,6 @@ export default {
   //         那么必须在install方法中注册当前的这个组件
   install: function (Vue, Options) {
     // Vue.component(Loading.name, Loading)
-
     // 1.根据我们的组件生成一个构造函数
     let LoadingContructor = Vue.extend(Loading)
     // 2.根据构造函数创建实例对象
